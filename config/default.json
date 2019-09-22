@@ -29,5 +29,5 @@
       "passwordField": "password"
     }
   },
-  "postgres": "postgres://postgres:@localhost:5432/max_scoring_node"
+  "postgres": "postgres://root:password@localhost:5432/max_scoring_node"
 }
