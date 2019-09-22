@@ -27,7 +27,9 @@
     "dev": "ts-node-dev --no-notify src/",
     "start": "npm run compile && node lib/",
     "jest": "jest  --forceExit",
-    "compile": "shx rm -rf lib/ && tsc"
+    "compile": "shx rm -rf lib/ && tsc",
+    "db:restart": "docker-compose up -d; docker-compose restart; sequelize db:drop",
+    "db:create": "docker-compose up -d; sequelize db:create; sequelize db:migrate && sequelize db:seed:all"
   },
   "dependencies": {
     "@feathersjs/authentication": "^4.3.2",

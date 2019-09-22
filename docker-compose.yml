@@ -10,7 +10,7 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: max-scoring
+      POSTGRES_DB: max-scoring-development
       POSTGRES_DATA: .pgdata
     volumes:
       - ./data/postgres
