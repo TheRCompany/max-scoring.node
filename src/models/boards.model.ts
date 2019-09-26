@@ -6,10 +6,16 @@ import { Application } from '../declarations';
 export default function (app: Application) {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
   const boards = sequelizeClient.define('boards', {
-    text: {
+
+    title: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
+
   }, {
     hooks: {
       beforeCount(options: any) {

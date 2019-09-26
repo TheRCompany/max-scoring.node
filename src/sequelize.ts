@@ -17,16 +17,18 @@ export default function (app: Application) {
   app.setup = function (...args) {
     const result = oldSetup.apply(this, args);
 
-  //   // Set up data relationships
-  //   const models = sequelize.models;
-  //   Object.keys(models).forEach(name => {
-  //     if ('associate' in models[name]) {
-  //       (models[name] as any).associate(models);
-  //     }
-  //   });
+    console.log(sequelize.models);
 
-  //   // Sync to the database
-  //   app.set('sequelizeSync', sequelize.sync());
+    // Set up data relationships
+    const models = sequelize.models;
+    Object.keys(models).forEach(name => {
+      if ('associate' in models[name]) {
+        (models[name] as any).associate(models);
+      }
+    });
+
+    // Sync to the database
+    app.set('sequelizeSync', sequelize.sync());
 
     return result;
   };
