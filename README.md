@@ -1,6 +1,6 @@
 # max-scoring-node
 
-> max scoring BE in node
+> max scoring BE in nodejs
 
 ## About
 
