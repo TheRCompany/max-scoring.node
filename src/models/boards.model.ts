@@ -22,7 +22,7 @@ export default function (app: Application) {
       allowNull: false
     },
     description: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: true
     }
 

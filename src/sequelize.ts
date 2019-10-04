@@ -19,6 +19,7 @@ export default function (app: Application) {
 
     // Set up data relationships
     const models = sequelize.models;
+    console.log(models);
     Object.keys(models).forEach(name => {
       if ('associate' in models[name]) {
         (models[name] as any).associate(models);
@@ -26,7 +27,7 @@ export default function (app: Application) {
     });
 
     // Sync to the database
-    app.set('sequelizeSync', sequelize.sync());
+    app.set('sequelizeSync', sequelize.sync({force: true}));
 
     return result;
   };
