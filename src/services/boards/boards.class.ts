@@ -1,15 +1,7 @@
 import { Service, SequelizeServiceOptions } from 'feathers-sequelize';
 import { Application } from '../../declarations';
-import { IntegerDataType, DateDataType } from 'sequelize/types';
 import { Params } from 'express-serve-static-core';
-
-interface BoardData {
-  id: IntegerDataType,
-  title: string,
-  description?: string,
-  created_at?: DateDataType,
-  updated_at?: DateDataType
-}
+import { BoardData } from '../../models/boards.model'
 
 export class Boards extends Service {
   constructor(options: Partial<SequelizeServiceOptions>, app: Application) {

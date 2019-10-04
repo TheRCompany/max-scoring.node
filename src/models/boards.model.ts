@@ -1,10 +1,20 @@
 // See http://docs.sequelizejs.com/en/latest/docs/models-definition/
 // for more of what you can do here.
 import { Sequelize, DataTypes } from 'sequelize';
+import { IntegerDataType, DateDataType } from 'sequelize/types';
 import { Application } from '../declarations';
+
+export interface BoardData {
+  id: IntegerDataType,
+  title: string,
+  description?: string,
+  created_at?: DateDataType,
+  updated_at?: DateDataType
+}
 
 export default function (app: Application) {
   const sequelizeClient: Sequelize = app.get('sequelizeClient');
+
   const boards = sequelizeClient.define('boards', {
 
     title: {
@@ -12,7 +22,7 @@ export default function (app: Application) {
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     }
 
