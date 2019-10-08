@@ -10,7 +10,7 @@
   "authentication": {
     "entity": "user",
     "service": "users",
-    "secret": "JGmSaP3hlVjdphODIL74/JSN7+c=",
+    "secret": "jzIId9e4kQy9BRXEfMLS6eRhC7I=",
     "authStrategies": [
       "jwt",
       "local"

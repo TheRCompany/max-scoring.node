@@ -14,21 +14,14 @@ export interface CardData {
   updatedAt?: DateDataType
 }
 
-type CardInstance = Sequelize.Instance<CardData> & CardData;
-type CardModel = Sequelize.Model<CardInstance, CardData>
-
-// export interface CardInstance extends Sequelize.Model<CardData>, CardData {
+// export interface CardInstance extends Sequelize.Model<CardInstance, CardData> {
 // };
-
-export function initCard(sequelize: Sequelize.Sequelize): CardModel {
-  const attributes: SequelizeAttributes<CardData> = {
-
-  }
-}
 
 export default function (app: Application) {
   const sequelizeClient: Sequelize.Sequelize = app.get('sequelizeClient');
-  const boards = app.get('boards');
+  const boards = sequelizeClient.models['boards'];
+
+  console.log(boards);
 
   const cards = sequelizeClient.define('cards', {
 
@@ -49,8 +42,9 @@ export default function (app: Application) {
 
         // This declares when to check the foreign key constraint. PostgreSQL only.
         // NOTE: I don't know why this does not work, but I let it here to log the attempt
-        deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-      }
+        // deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+      },
+      allowNull: false
     },
 
     title: {
