@@ -23,7 +23,7 @@ export default function (app: Application) {
 
   console.log(boards);
 
-  const cards = sequelizeClient.define('cards', {
+  const Card = sequelizeClient.define('cards', {
 
     id: {
       type: DataTypes.INTEGER,
@@ -61,15 +61,23 @@ export default function (app: Application) {
       beforeCount(options: any) {
         options.raw = true;
       }
+    },
+    validate : {
+      ensureBoardId: function () {
+        if (!this.boardId === null) {
+          throw new Error ('get your shit together fam');
+        }
+      }
     }
   });
 
   // eslint-disable-next-line no-unused-vars
-  (cards as any).associate = function (models: any) {
-
+  (Card as any).associate = function (models: any) {
     // Define associations here
     // See http://docs.sequelizejs.com/en/latest/docs/associations/
+
+    models.cards.belongsTo(models.boards, {});
   };
 
-  return cards;
+  return Card;
 }

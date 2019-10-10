@@ -7,4 +7,15 @@ export class Cards extends Service {
   constructor(options: Partial<SequelizeServiceOptions>, app: Application) {
     super(options);
   }
+
+  create (data: CardData, params?: Params) {
+    const { title, description, createdAt, updatedAt } = data;
+    const cardData = {
+      title,
+      description,
+      createdAt,
+      updatedAt
+    };
+    return super.create(cardData, params);
+  };
 }
