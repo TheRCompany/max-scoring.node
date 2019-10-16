@@ -21,8 +21,6 @@ export default function (app: Application) {
   const sequelizeClient: Sequelize.Sequelize = app.get('sequelizeClient');
   const boards = sequelizeClient.models['boards'];
 
-  console.log(boards);
-
   const Card = sequelizeClient.define('cards', {
 
     id: {
@@ -64,7 +62,7 @@ export default function (app: Application) {
     },
     validate : {
       ensureBoardId: function () {
-        if (!this.boardId === null) {
+        if (!this.boardId) {
           throw new Error ('get your shit together fam');
         }
       }
