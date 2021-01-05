@@ -58,7 +58,7 @@
     "@types/jsonwebtoken": "^8.3.3",
     "@types/serve-favicon": "^2.2.31",
     "@types/validator": "^10.11.3",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "shx": "^0.3.2",
